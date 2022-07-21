@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="hueso" src="hueso.gltf"></a-asset-item>
+        <a-asset-item id="mono" src="mono.gltf"></a-asset-item>
+        <img id="my-image" src="image.png">
+        <img id="my-image2" src="image2.png">
+        <img id="my-image3" src="bebe.png">
+        <a-sound src="/P1_ASSETs/intro_ok.mp3" autoplay="true"></a-sound>
+        <audio id="grito" src="/P1_ASSETs/mixkit-scared-monkey-thumping-chest-98.mp3"></audio>
+      </a-assets>
+
+      <a-camera>
+        <a-cursor raycaster="objets: .clickable"></a-cursor>
+      </a-camera>
+
+      <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+        <a-sphere position="-5 8 -20" radius="2" rotation="0 -115 0" src="#my-image3"></a-sphere>
+      </a-entity>
+
+      <a-entity rotation="-10 30 40" animation="property: rotation; to: 0 -10 -90 ; loop: true; dur: 5000">
+        <a-gltf-model src="#hueso" position="1 0.2 -2" rotation="0 45 0"></a-gltf-model>
+      </a-entity>
+      
+      <a-box position="0 0 -2" width=".2" height="4" rotation="0 25 0" src="#my-image2"></a-box>
+      <a-sky src="#my-image"></a-sky>
+      <a-gltf-model src="#mono" position="-7 -6 0" rotation="0 100 0" sound="src: #grito on: clickable" ></a-gltf-model>
+    </a-scene>
+  </body>
+</html>
